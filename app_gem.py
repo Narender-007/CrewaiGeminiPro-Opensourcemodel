@@ -8,7 +8,7 @@ from langchain.tools import DuckDuckGoSearchRun
 llm = ChatGoogleGenerativeAI(model="gemini-pro",
                              verbose = True,
                              temperature = 0.5,
-                             google_api_key="")
+                             google_api_key="AIzaSyDQB89aWR6vneYIp5H0lnj1vkAvsxo7tEU")
 
 
 #create searches
@@ -52,7 +52,7 @@ email_task = Task(
     4. Adjust the emails to align with best practices for cold outreach. Consider the feedback 
     provided to the marketing_strategist.
     5. Revise the emails based on all feedback, creating two final versions.''',
-    agent=marketing_strategist  # The Marketing Strategist is in charge and can delegate
+    agent=marketing_strategist,expected_output="Email should be professional content without any grammer mistakes and video editing with marketing analyst"  # The Marketing Strategist is in charge and can delegate
 )
 
 
@@ -67,3 +67,4 @@ email_crew = Crew(
 # Execution Flow
 print("Crew: Working on Email Task")
 emails_output = email_crew.kickoff()
+print("email_author----",email_author)
